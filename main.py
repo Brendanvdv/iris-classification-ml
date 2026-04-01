@@ -35,12 +35,19 @@ def data_summary():
     print(dataset.groupby('class').size())
     
 def data_visualization():
-    
+    dataset = load_data()
+    # box and whisker plots
+    dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
+    #histograms
+    dataset.hist()
+    # scatter plot matrix
+    scatter_matrix(dataset)
+    plt.show()
     
 
 def main():
     data_summary()
-
+    data_visualization()
 
 if __name__ == "__main__":
 	main()
